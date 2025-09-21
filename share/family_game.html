@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>亲子游戏分享</title>
-    <meta name="description" content="分享的亲子游戏详情">
+    <title>Family Game Share</title>
+    <meta name="description" content="Shared family game details">
     
     <!-- Open Graph 标签 -->
-    <meta property="og:title" content="亲子游戏分享">
-    <meta property="og:description" content="查看这个有趣的亲子游戏">
+    <meta property="og:title" content="Family Game Share">
+    <meta property="og:description" content="Check out this interesting family game">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
@@ -37,7 +37,7 @@
         <!-- 游戏头部 -->
         <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-xl text-white p-8 sm:p-12 text-center">
             <div class="text-6xl sm:text-7xl mb-6" id="gameIcon">🎮</div>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="gameTitle">加载中...</h1>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="gameTitle" data-translate="loading">Loading...</h1>
             <p class="text-lg sm:text-xl opacity-90" id="gameSubTitle"></p>
         </div>
         
@@ -46,28 +46,28 @@
             <div class="p-6 sm:p-8 lg:p-10" id="gameContent">
                 <!-- 游戏描述 -->
                 <div class="mb-8">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">游戏描述</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500" data-translate="gameDescription">Game Description</h3>
                     <p class="text-gray-700 leading-relaxed whitespace-pre-wrap" id="gameDescription"></p>
                 </div>
                 
                 <!-- 游戏信息 -->
                 <div class="mb-8">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">游戏信息</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500" data-translate="gameInfo">Game Information</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="bg-gray-50 rounded-lg p-4 flex justify-between items-center">
-                            <span class="text-sm font-medium text-gray-600">适合年龄</span>
+                            <span class="text-sm font-medium text-gray-600" data-translate="ageRecommendation">Age Range</span>
                             <span class="text-sm font-semibold text-gray-800" id="ageRecommendation"></span>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4 flex justify-between items-center">
-                            <span class="text-sm font-medium text-gray-600">参与人数</span>
+                            <span class="text-sm font-medium text-gray-600" data-translate="participants">Participants</span>
                             <span class="text-sm font-semibold text-gray-800" id="participants"></span>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4 flex justify-between items-center">
-                            <span class="text-sm font-medium text-gray-600">游戏地点</span>
+                            <span class="text-sm font-medium text-gray-600" data-translate="gamePlace">Location</span>
                             <span class="text-sm font-semibold text-gray-800" id="gamePlace"></span>
                         </div>
                         <div class="bg-gray-50 rounded-lg p-4 flex justify-between items-center">
-                            <span class="text-sm font-medium text-gray-600">游戏分类</span>
+                            <span class="text-sm font-medium text-gray-600" data-translate="gameCategory">Category</span>
                             <span class="text-sm font-semibold text-gray-800" id="gameCategory"></span>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                 
                 <!-- 所需材料 -->
                 <div class="mb-8" id="materialsSection" style="display: none;">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">所需材料</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500" data-translate="materials">Materials Needed</h3>
                     <div class="space-y-2">
                         <ul class="space-y-2" id="materialsList"></ul>
                     </div>
@@ -83,13 +83,13 @@
                 
                 <!-- 能力培养 -->
                 <div class="mb-8" id="abilitiesSection" style="display: none;">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">能力培养</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500" data-translate="abilities">Skills Developed</h3>
                     <div class="flex flex-wrap gap-2" id="abilitiesList"></div>
                 </div>
                 
                 <!-- 游戏图片 -->
                 <div class="mb-8" id="imagesSection" style="display: none;">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">游戏图片</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500" data-translate="gameImages">Game Images</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="imageGallery"></div>
                 </div>
             </div>
@@ -98,27 +98,28 @@
         <!-- 加载状态 -->
         <div class="bg-white rounded-xl shadow-lg p-12 text-center" id="loading">
             <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
-            <p class="text-gray-600 text-lg">正在加载游戏信息...</p>
+            <p class="text-gray-600 text-lg" data-translate="loading">Loading game information...</p>
         </div>
         
         <!-- 错误状态 -->
         <div class="bg-white rounded-xl shadow-lg p-12 text-center" id="error" style="display: none;">
             <div class="text-red-500 text-6xl mb-4">⚠️</div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">加载失败</h3>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2" data-translate="loadFailed">Load Failed</h3>
             <p class="text-gray-600" id="errorMessage"></p>
-            <button onclick="location.reload()" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors">
-                重新加载
+            <button onclick="location.reload()" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors" data-translate="reload">
+                Reload
             </button>
         </div>
         
         <!-- 页脚 -->
         <div class="text-center mt-8 text-gray-500 text-sm">
-            <p>由 <span class="font-semibold text-blue-600">Jopar</span> 分享</p>
+            <p><span data-translate="sharedBy">Shared by</span> <span class="font-semibold text-blue-600" data-translate="sharedByJopar">Jopar</span> <span data-translate="sharedByText"></span></p>
         </div>
     </div>
     
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="./assets/js/supabase-config.js"></script>
+    <script src="./assets/js/i18n-config.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>

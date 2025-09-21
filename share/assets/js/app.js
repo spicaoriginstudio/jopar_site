@@ -4,6 +4,7 @@ class GameShareApp {
         this.supabase = null;
         this.gameId = null;
         this.isDevMode = false;
+        this.language = 'en'; // 默认语言
         this.init();
     }
     
@@ -13,11 +14,24 @@ class GameShareApp {
         this.gameId = urlParams.get('id');
         this.isDevMode = urlParams.get('dev') === '1';
         
+        // 检测语言参数
+        const langParam = urlParams.get('lang');
+        if (langParam && I18N_CONFIG[langParam]) {
+            this.language = langParam;
+        } else {
+            // 如果没有语言参数，尝试从浏览器语言检测
+            const browserLang = navigator.language.split('-')[0];
+            this.language = I18N_CONFIG[browserLang] ? browserLang : 'en';
+        }
+        
+        // 应用语言设置
+        this.applyLanguage();
+        
         // 显示环境信息
         this.showEnvironmentInfo();
         
         if (!this.gameId) {
-            this.showError('缺少游戏ID参数');
+            this.showError(this.t('missingGameId'));
             return;
         }
         
@@ -31,6 +45,57 @@ class GameShareApp {
         await this.loadGameData();
     }
     
+    // 翻译方法
+    t(key) {
+        const keys = key.split('.');
+        let value = I18N_CONFIG[this.language];
+        
+        for (const k of keys) {
+            if (value && typeof value === 'object' && k in value) {
+                value = value[k];
+            } else {
+                // 如果当前语言没有该键，回退到中文
+                value = I18N_CONFIG['zh'];
+                for (const fallbackKey of keys) {
+                    if (value && typeof value === 'object' && fallbackKey in value) {
+                        value = value[fallbackKey];
+                    } else {
+                        return key; // 如果连中文都没有，返回键名
+                    }
+                }
+                break;
+            }
+        }
+        
+        return typeof value === 'string' ? value : key;
+    }
+    
+    // 应用语言设置
+    applyLanguage() {
+        // 更新页面标题
+        document.title = this.t('pageTitle');
+        
+        // 更新 meta 标签
+        document.querySelector('meta[name="description"]').content = this.t('pageDescription');
+        document.querySelector('meta[property="og:description"]').content = this.t('ogDescription');
+        
+        // 更新页面语言属性
+        document.documentElement.lang = this.language;
+        
+        // 触发页面重新渲染以应用翻译
+        this.refreshTranslations();
+    }
+    
+    // 刷新页面翻译
+    refreshTranslations() {
+        // 查找所有包含 t() 调用的元素并重新渲染
+        const elementsWithTranslations = document.querySelectorAll('[data-translate]');
+        elementsWithTranslations.forEach(element => {
+            const translationKey = element.getAttribute('data-translate');
+            element.textContent = this.t(translationKey);
+        });
+    }
+    
     showEnvironmentInfo() {
         // 在开发模式下显示环境信息
         if (this.isDevMode) {
@@ -39,7 +104,7 @@ class GameShareApp {
             envInfo.innerHTML = `
                 <div class="flex items-center">
                     <span class="mr-2">🔧</span>
-                    <span>开发环境</span>
+                    <span>${this.t('devMode')}</span>
                     <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-yellow-600 hover:text-yellow-800">×</button>
                 </div>
             `;
@@ -60,10 +125,10 @@ class GameShareApp {
             
             // 在开发模式下显示调试信息
             if (this.isDevMode) {
-                console.log('🔧 开发模式调试信息:');
-                console.log('- 游戏ID:', this.gameId);
-                console.log('- Supabase URL:', SUPABASE_URL);
-                console.log('- 当前时间:', new Date().toISOString());
+                console.log(`🔧 ${this.t('devModeDebug')}:`);
+                console.log(`- ${this.t('gameId')}:`, this.gameId);
+                console.log(`- ${this.t('supabaseUrl')}:`, SUPABASE_URL);
+                console.log(`- ${this.t('currentTime')}:`, new Date().toISOString());
             }
             
             const { data, error } = await this.supabase
@@ -74,18 +139,18 @@ class GameShareApp {
             
             if (error) {
                 if (this.isDevMode) {
-                    console.error('❌ Supabase 错误详情:', error);
+                    console.error(`❌ ${this.t('supabaseError')}:`, error);
                 }
-                throw new Error(`数据库查询失败: ${error.message}`);
+                throw new Error(`${this.t('databaseError')}: ${error.message}`);
             }
             
             if (!data) {
-                throw new Error('游戏不存在或已被删除');
+                throw new Error(this.t('gameNotFound'));
             }
             
             // 在开发模式下显示数据信息
             if (this.isDevMode) {
-                console.log('✅ 成功获取游戏数据:', data);
+                console.log(`✅ ${this.t('successGetData')}:`, data);
             }
             
             // 更新访问计数
@@ -95,11 +160,11 @@ class GameShareApp {
             this.displayGame(data.game_data);
             
         } catch (error) {
-            console.error('加载游戏数据失败:', error);
+            console.error('Failed to load game data:', error);
             
             // 在开发模式下显示更详细的错误信息
             if (this.isDevMode) {
-                this.showError(`${error.message}\n\n调试信息:\n- 游戏ID: ${this.gameId}\n- 环境: ${this.isDevMode ? '开发' : '生产'}\n- 时间: ${new Date().toISOString()}`);
+                this.showError(`${error.message}\n\n调试信息:\n- 游戏ID: ${this.gameId}\n- 环境: ${this.isDevMode ? 'Development' : 'Production'}\n- 时间: ${new Date().toISOString()}`);
             } else {
                 this.showError(error.message);
             }
@@ -108,13 +173,15 @@ class GameShareApp {
     
     displayGame(gameData) {
         // 更新页面标题
-        document.title = `${gameData.name} - 亲子游戏分享`;
+        document.title = `${gameData.name} - ${this.t('pageTitle')}`;
         
         // 更新Open Graph标签
         this.updateMetaTags(gameData);
         
         // 显示游戏信息
-        document.getElementById('gameIcon').textContent = gameData.emojiIcon || '🎮';
+        document.getElementById('gameIcon').textContent = gameData.emojiIcon || this.t('defaultGameIcon');
+        
+        // 更新游戏标题，显示实际游戏名称
         document.getElementById('gameTitle').textContent = gameData.name;
         
         if (gameData.subTitle) {
@@ -122,8 +189,14 @@ class GameShareApp {
         }
         
         document.getElementById('gameDescription').textContent = gameData.description;
-        document.getElementById('ageRecommendation').textContent = `${gameData.ageRecommendation}岁`;
-        document.getElementById('participants').textContent = `${gameData.participants}人`;
+        
+        // 根据语言显示年龄和人数
+        const ageText = `${gameData.ageRecommendation}${this.t('ageFormat')}`;
+        document.getElementById('ageRecommendation').textContent = ageText;
+        
+        const participantsText = `${gameData.participants}${this.t('participantsFormat')}`;
+        document.getElementById('participants').textContent = participantsText;
+        
         document.getElementById('gamePlace').textContent = this.getPlaceText(gameData.place);
         document.getElementById('gameCategory').textContent = this.getCategoryText(gameData.category);
         
@@ -220,7 +293,7 @@ class GameShareApp {
                 .single();
             
             if (fetchError) {
-                console.warn('获取当前访问计数失败:', fetchError);
+                console.warn('Failed to get current access count:', fetchError);
                 return;
             }
             
@@ -231,10 +304,10 @@ class GameShareApp {
                 .eq('id', this.gameId);
             
             if (error) {
-                console.warn('更新访问计数失败:', error);
+                console.warn('Failed to update access count:', error);
             }
         } catch (error) {
-            console.warn('更新访问计数失败:', error);
+            console.warn('Failed to update access count:', error);
         }
     }
     
@@ -249,24 +322,11 @@ class GameShareApp {
     }
     
     getPlaceText(place) {
-        const placeMap = {
-            'indoor': '室内',
-            'outdoor': '户外',
-            'both': '室内外均可'
-        };
-        return placeMap[place] || place;
+        return this.t(`placeMap.${place}`) || place;
     }
     
     getCategoryText(category) {
-        const categoryMap = {
-            'education': '教育类',
-            'physical': '体能类',
-            'social': '社交类',
-            'creative': '创意类',
-            'sport': '运动类',
-            'none': '未分类'
-        };
-        return categoryMap[category] || category;
+        return this.t(`categoryMap.${category}`) || category;
     }
     
     showLoading() {
