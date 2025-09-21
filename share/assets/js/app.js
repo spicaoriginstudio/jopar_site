@@ -212,10 +212,27 @@ class GameShareApp {
     
     async updateAccessCount() {
         try {
-            await this.supabase
+            // 先获取当前的访问计数
+            const { data: currentData, error: fetchError } = await this.supabase
                 .from('temp_game_shares')
-                .update({ access_count: supabase.raw('access_count + 1') })
+                .select('access_count')
+                .eq('id', this.gameId)
+                .single();
+            
+            if (fetchError) {
+                console.warn('获取当前访问计数失败:', fetchError);
+                return;
+            }
+            
+            // 更新访问计数（递增1）
+            const { error } = await this.supabase
+                .from('temp_game_shares')
+                .update({ access_count: (currentData.access_count || 0) + 1 })
                 .eq('id', this.gameId);
+            
+            if (error) {
+                console.warn('更新访问计数失败:', error);
+            }
         } catch (error) {
             console.warn('更新访问计数失败:', error);
         }
