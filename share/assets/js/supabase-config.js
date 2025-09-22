@@ -4,7 +4,7 @@
 const ENVIRONMENTS = {
     production: {
         url: 'https://your-production-project.supabase.co',
-        anonKey: 'your-production-anon-key'
+        anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90d3FqcG1ncHNidGJ4Zmplc3pjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwOTUwNjksImV4cCI6MjA2OTY3MTA2OX0.FKIr3IuP_KGEyA4Ygt4rzqm3PZUoNcBodtf4f180nkA'
     },
     development: {
         url: 'http://192.168.50.143:54321', 
