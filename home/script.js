@@ -183,6 +183,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 游戏卡片交互
     initGameCardInteractions();
     
+    // Try Now按钮点击事件
+    initTryNowButton();
+    
     // 添加更多浮动元素
     initFloatingElements();
 });
@@ -274,6 +277,24 @@ function initScrollAnimations() {
 // function initContactForm() {
 //     // 表单处理代码已移除
 // }
+
+// Try Now按钮点击事件
+function initTryNowButton() {
+    const tryNowButton = document.querySelector('.btn-primary[data-translate="heroButtonPrimary"]');
+    
+    if (tryNowButton) {
+        tryNowButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 打开指定的OneLink链接到新标签页
+            const targetUrl = 'https://joparapp.onelink.me/9HsN/w1dy9we5';
+            window.open(targetUrl, '_blank');
+            
+            // 显示成功通知
+            showNotification(t('tryNowSuccess') || '正在打开应用...', 'success');
+        });
+    }
+}
 
 // 游戏卡片交互
 function initGameCardInteractions() {

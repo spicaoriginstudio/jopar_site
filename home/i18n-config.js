@@ -19,6 +19,7 @@ const I18N_CONFIG = {
         heroSubtitle: 'Family Interactive Game Platform',
         heroDescription: 'Let every family find joy in games and strengthen bonds through interaction. Explore, learn, and grow together with your children, creating beautiful memories.',
         heroButtonPrimary: 'Try Now',
+        tryNowSuccess: 'Opening app...',
         
         // 功能特色
         featuresTitle: 'Core Features',
@@ -66,7 +67,6 @@ const I18N_CONFIG = {
         // 页脚
         footerPrivacy: 'Privacy Policy',
         footerTerms: 'Terms of Service',
-        footerHelp: 'Help Center',
         footerCopyright: '© 2024 Jopar. Let every family find joy in games.',
         
         // 游戏详情模态框
@@ -107,6 +107,7 @@ const I18N_CONFIG = {
         heroSubtitle: '亲子互动游戏平台',
         heroDescription: '让每个家庭都能在游戏中找到快乐，在互动中增进感情。<br>与孩子一起探索、学习、成长，创造美好的回忆。',
         heroButtonPrimary: '立即体验',
+        tryNowSuccess: '正在打开应用...',
         
         // 功能特色
         featuresTitle: '核心功能',
@@ -154,7 +155,6 @@ const I18N_CONFIG = {
         // 页脚
         footerPrivacy: '隐私政策',
         footerTerms: '服务条款',
-        footerHelp: '帮助中心',
         footerCopyright: '© 2024 Jopar. 让每个家庭都能在游戏中找到快乐。',
         
         // 游戏详情模态框
