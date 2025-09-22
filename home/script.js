@@ -1,6 +1,173 @@
 // 宫崎骏风格官网交互效果
 
+// 多语言支持类
+class I18nManager {
+    constructor() {
+        this.currentLanguage = 'en'; // 默认英文
+        this.init();
+    }
+    
+    init() {
+        // 检测浏览器语言
+        const browserLang = navigator.language.split('-')[0];
+        if (I18N_CONFIG[browserLang]) {
+            this.currentLanguage = browserLang;
+        }
+        
+        // 从URL参数获取语言设置
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        if (langParam && I18N_CONFIG[langParam]) {
+            this.currentLanguage = langParam;
+        }
+        
+        // 从localStorage获取保存的语言设置
+        const savedLang = localStorage.getItem('jopar-language');
+        if (savedLang && I18N_CONFIG[savedLang]) {
+            this.currentLanguage = savedLang;
+        }
+        
+        this.applyLanguage();
+        this.initLanguageSwitcher();
+    }
+    
+    // 翻译方法
+    t(key) {
+        const keys = key.split('.');
+        let value = I18N_CONFIG[this.currentLanguage];
+        
+        for (const k of keys) {
+            if (value && typeof value === 'object' && k in value) {
+                value = value[k];
+            } else {
+                // 如果当前语言没有该键，回退到中文
+                value = I18N_CONFIG['zh'];
+                for (const fallbackKey of keys) {
+                    if (value && typeof value === 'object' && fallbackKey in value) {
+                        value = value[fallbackKey];
+                    } else {
+                        return key; // 如果连中文都没有，返回键名
+                    }
+                }
+                break;
+            }
+        }
+        
+        return typeof value === 'string' ? value : key;
+    }
+    
+    // 应用语言设置
+    applyLanguage() {
+        // 更新页面标题
+        document.title = this.t('pageTitle');
+        
+        // 更新 meta 标签
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.content = this.t('pageDescription');
+        }
+        
+        // 更新页面语言属性
+        document.documentElement.lang = this.currentLanguage;
+        
+        // 刷新页面翻译
+        this.refreshTranslations();
+        
+        // 更新语言切换器状态
+        this.updateLanguageSwitcher();
+    }
+    
+    // 刷新页面翻译
+    refreshTranslations() {
+        // 查找所有包含 data-translate 属性的元素并更新文本
+        const elementsWithTranslations = document.querySelectorAll('[data-translate]');
+        elementsWithTranslations.forEach(element => {
+            const translationKey = element.getAttribute('data-translate');
+            const translatedText = this.t(translationKey);
+            
+            // 处理 placeholder 属性
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translatedText;
+            } else {
+                element.textContent = translatedText;
+            }
+        });
+    }
+    
+    // 初始化语言切换器
+    initLanguageSwitcher() {
+        const langTrigger = document.getElementById('languageTrigger');
+        const langMenu = document.getElementById('languageMenu');
+        const langDropdown = document.querySelector('.lang-dropdown');
+        
+        if (langTrigger && langMenu) {
+            // 点击触发器显示/隐藏菜单
+            langTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('active');
+            });
+            
+            // 点击语言选项
+            const langOptions = document.querySelectorAll('.lang-option');
+            langOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const lang = option.getAttribute('data-lang');
+                    this.setLanguage(lang);
+                    langDropdown.classList.remove('active');
+                });
+            });
+            
+            // 点击页面其他地方关闭菜单
+            document.addEventListener('click', () => {
+                langDropdown.classList.remove('active');
+            });
+        }
+    }
+    
+    // 设置语言
+    setLanguage(lang) {
+        if (I18N_CONFIG[lang]) {
+            this.currentLanguage = lang;
+            localStorage.setItem('jopar-language', lang);
+            this.applyLanguage();
+        }
+    }
+    
+    // 更新语言切换器状态
+    updateLanguageSwitcher() {
+        const langText = document.querySelector('.lang-text');
+        const langOptions = document.querySelectorAll('.lang-option');
+        
+        if (langText) {
+            // 更新触发器显示的文字
+            langText.textContent = this.currentLanguage === 'en' ? 'English' : '中文';
+        }
+        
+        // 更新选项的激活状态
+        langOptions.forEach(option => {
+            const lang = option.getAttribute('data-lang');
+            if (lang === this.currentLanguage) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+    }
+}
+
+// 全局多语言管理器实例
+let i18nManager;
+
+// 翻译函数（全局使用）
+function t(key) {
+    return i18nManager ? i18nManager.t(key) : key;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    // 初始化多语言管理器
+    i18nManager = new I18nManager();
+    
     // 平滑滚动导航
     initSmoothScrolling();
     
@@ -119,12 +286,12 @@ function initContactForm() {
             
             // 简单的表单验证
             if (!name || !email || !message) {
-                showNotification('请填写所有必填字段', 'error');
+                showNotification(t('formValidationRequired'), 'error');
                 return;
             }
             
             if (!isValidEmail(email)) {
-                showNotification('请输入有效的邮箱地址', 'error');
+                showNotification(t('formValidationEmail'), 'error');
                 return;
             }
             
@@ -132,11 +299,11 @@ function initContactForm() {
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = '发送中...';
+            submitBtn.textContent = t('formSending');
             submitBtn.disabled = true;
             
             setTimeout(() => {
-                showNotification('消息发送成功！我们会尽快回复您。', 'success');
+                showNotification(t('formSuccess'), 'success');
                 form.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -234,22 +401,22 @@ function showGameDetail(gameName) {
                 <button class="close-btn">&times;</button>
             </div>
             <div class="modal-body">
-                <p>这是一个有趣的亲子互动游戏，适合全家人一起参与。</p>
+                <p>${t('gameModalDescription')}</p>
                 <div class="game-info">
                     <div class="info-item">
-                        <span class="label">适合年龄：</span>
-                        <span class="value">3-12岁</span>
+                        <span class="label">${t('gameModalAge')}</span>
+                        <span class="value">${t('gameModalAgeValue')}</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">参与人数：</span>
-                        <span class="value">2-6人</span>
+                        <span class="label">${t('gameModalParticipants')}</span>
+                        <span class="value">${t('gameModalParticipantsValue')}</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">游戏时长：</span>
-                        <span class="value">15-30分钟</span>
+                        <span class="label">${t('gameModalDuration')}</span>
+                        <span class="value">${t('gameModalDurationValue')}</span>
                     </div>
                 </div>
-                <button class="btn btn-primary">开始游戏</button>
+                <button class="btn btn-primary">${t('gameModalStart')}</button>
             </div>
         </div>
     `;

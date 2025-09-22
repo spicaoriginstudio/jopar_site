@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jopar - 亲子互动游戏平台</title>
+    <title data-translate="pageTitle">Jopar - Family Interactive Game Platform</title>
+    <meta name="description" content="" data-translate="pageDescription">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -16,12 +17,24 @@
                 <span class="logo-text">Jopar</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#features">功能</a></li>
-                <li><a href="#games">游戏</a></li>
-                <li><a href="#about">关于</a></li>
-                <li><a href="#contact">联系</a></li>
+                <li><a href="#home" data-translate="navHome">Home</a></li>
+                <li><a href="#features" data-translate="navFeatures">Features</a></li>
+                <li><a href="#games" data-translate="navGames">Games</a></li>
+                <li><a href="#about" data-translate="navAbout">About</a></li>
+                <li><a href="#contact" data-translate="navContact">Contact</a></li>
             </ul>
+            <div class="language-switcher">
+                <div class="lang-dropdown">
+                    <button class="lang-trigger" id="languageTrigger">
+                        <span class="lang-text">English</span>
+                        <span class="lang-icon">▼</span>
+                    </button>
+                    <div class="lang-menu" id="languageMenu">
+                        <div class="lang-option" data-lang="en">English</div>
+                        <div class="lang-option" data-lang="zh">中文</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -43,16 +56,16 @@
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="title-main">Jopar</span>
-                    <span class="title-sub">亲子互动游戏平台</span>
+                    <span class="title-main" data-translate="heroTitle">Jopar</span>
+                    <span class="title-sub" data-translate="heroSubtitle">Family Interactive Game Platform</span>
                 </h1>
-                <p class="hero-description">
-                    让每个家庭都能在游戏中找到快乐，在互动中增进感情。<br>
-                    与孩子一起探索、学习、成长，创造美好的回忆。
+                <p class="hero-description" data-translate="heroDescription">
+                    Let every family find joy in games and strengthen bonds through interaction.<br>
+                    Explore, learn, and grow together with your children, creating beautiful memories.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary">立即体验</button>
-                    <button class="btn btn-secondary">了解更多</button>
+                    <button class="btn btn-primary" data-translate="heroButtonPrimary">Try Now</button>
+                    <button class="btn btn-secondary" data-translate="heroButtonSecondary">Learn More</button>
                 </div>
             </div>
             <div class="hero-illustration">
@@ -69,37 +82,37 @@
         <!-- 功能特色 -->
         <section id="features" class="features">
             <div class="container">
-                <h2 class="section-title">核心功能</h2>
+                <h2 class="section-title" data-translate="featuresTitle">Core Features</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">🎮</div>
-                        <h3>家庭游戏中心</h3>
-                        <p>提供多种适合家庭成员共同参与的游戏，包括运动类、益智类、创意类等，促进亲子关系。</p>
+                        <h3 data-translate="featureGameCenter">Family Game Center</h3>
+                        <p data-translate="featureGameCenterDesc">Provides various games suitable for family members to participate together, including sports, puzzle, creative games, etc., promoting parent-child relationships.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📊</div>
-                        <h3>成长记录</h3>
-                        <p>记录孩子们的游戏历程和成长轨迹，生成详细的育儿报告，帮助家长了解孩子的发展。</p>
+                        <h3 data-translate="featureGrowthRecord">Growth Records</h3>
+                        <p data-translate="featureGrowthRecordDesc">Record children's gaming journey and growth trajectory, generate detailed parenting reports to help parents understand their children's development.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">⏰</div>
-                        <h3>时间管理</h3>
-                        <p>智能安排游戏时间，设置提醒功能，帮助家庭建立规律的游戏习惯。</p>
+                        <h3 data-translate="featureTimeManagement">Time Management</h3>
+                        <p data-translate="featureTimeManagementDesc">Intelligently arrange game time, set reminder functions, help families establish regular gaming habits.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🏆</div>
-                        <h3>成就系统</h3>
-                        <p>通过游戏成就激励孩子参与，培养持续性和目标感，让成长更有趣。</p>
+                        <h3 data-translate="featureAchievement">Achievement System</h3>
+                        <p data-translate="featureAchievementDesc">Motivate children to participate through game achievements, cultivate persistence and goal awareness, making growth more interesting.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">👨‍👩‍👧‍👦</div>
-                        <h3>家庭管理</h3>
-                        <p>轻松管理家庭成员，共享游戏记录，让每个家庭成员都能参与其中。</p>
+                        <h3 data-translate="featureFamilyManagement">Family Management</h3>
+                        <p data-translate="featureFamilyManagementDesc">Easily manage family members, share game records, let every family member participate.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">💬</div>
-                        <h3>互动反馈</h3>
-                        <p>记录游戏反馈，分享游戏心得，与其他家庭交流育儿经验。</p>
+                        <h3 data-translate="featureFeedback">Interactive Feedback</h3>
+                        <p data-translate="featureFeedbackDesc">Record game feedback, share gaming insights, exchange parenting experiences with other families.</p>
                     </div>
                 </div>
             </div>
@@ -108,30 +121,30 @@
         <!-- 游戏展示 -->
         <section id="games" class="games">
             <div class="container">
-                <h2 class="section-title">精选游戏</h2>
+                <h2 class="section-title" data-translate="gamesTitle">Featured Games</h2>
                 <div class="games-showcase">
                     <div class="game-category">
-                        <h3>运动类游戏</h3>
+                        <h3 data-translate="gameCategorySports">Sports Games</h3>
                         <div class="game-items">
-                            <div class="game-item">🏃‍♂️ 家庭接力赛</div>
-                            <div class="game-item">🤸‍♀️ 平衡挑战</div>
-                            <div class="game-item">🎯 投掷游戏</div>
+                            <div class="game-item" data-translate="gameFamilyRelay">🏃‍♂️ Family Relay Race</div>
+                            <div class="game-item" data-translate="gameBalanceChallenge">🤸‍♀️ Balance Challenge</div>
+                            <div class="game-item" data-translate="gameThrowingGame">🎯 Throwing Game</div>
                         </div>
                     </div>
                     <div class="game-category">
-                        <h3>益智类游戏</h3>
+                        <h3 data-translate="gameCategoryPuzzle">Puzzle Games</h3>
                         <div class="game-items">
-                            <div class="game-item">🧩 拼图挑战</div>
-                            <div class="game-item">🔢 数学游戏</div>
-                            <div class="game-item">🎨 创意绘画</div>
+                            <div class="game-item" data-translate="gamePuzzleChallenge">🧩 Puzzle Challenge</div>
+                            <div class="game-item" data-translate="gameMathGame">🔢 Math Game</div>
+                            <div class="game-item" data-translate="gameCreativeDrawing">🎨 Creative Drawing</div>
                         </div>
                     </div>
                     <div class="game-category">
-                        <h3>互动类游戏</h3>
+                        <h3 data-translate="gameCategoryInteractive">Interactive Games</h3>
                         <div class="game-items">
-                            <div class="game-item">🎭 角色扮演</div>
-                            <div class="game-item">🎪 表演游戏</div>
-                            <div class="game-item">🎵 音乐互动</div>
+                            <div class="game-item" data-translate="gameRolePlay">🎭 Role Play</div>
+                            <div class="game-item" data-translate="gamePerformanceGame">🎪 Performance Game</div>
+                            <div class="game-item" data-translate="gameMusicInteraction">🎵 Music Interaction</div>
                         </div>
                     </div>
                 </div>
@@ -143,27 +156,27 @@
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2>关于 Jopar</h2>
-                        <p>
-                            Jopar 是一款专为现代家庭设计的亲子互动游戏平台。我们相信，游戏不仅是娱乐，
-                            更是家庭沟通的桥梁，是孩子成长的伙伴。
+                        <h2 data-translate="aboutTitle">About Jopar</h2>
+                        <p data-translate="aboutDescription1">
+                            Jopar is a family interactive game platform designed specifically for modern families. We believe that games are not only entertainment,
+                            but also a bridge for family communication and a companion for children's growth.
                         </p>
-                        <p>
-                            通过精心设计的游戏内容和智能化的记录系统，我们帮助家长更好地了解孩子，
-                            促进亲子关系，让每个家庭都能在游戏中找到属于自己的快乐时光。
+                        <p data-translate="aboutDescription2">
+                            Through carefully designed game content and intelligent recording systems, we help parents better understand their children,
+                            promote parent-child relationships, and let every family find their own happy time in games.
                         </p>
                         <div class="stats">
                             <div class="stat">
                                 <span class="stat-number">1000+</span>
-                                <span class="stat-label">活跃家庭</span>
+                                <span class="stat-label" data-translate="statActiveFamilies">Active Families</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-number">500+</span>
-                                <span class="stat-label">精选游戏</span>
+                                <span class="stat-label" data-translate="statFeaturedGames">Featured Games</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-number">98%</span>
-                                <span class="stat-label">用户满意度</span>
+                                <span class="stat-label" data-translate="statUserSatisfaction">User Satisfaction</span>
                             </div>
                         </div>
                     </div>
@@ -183,28 +196,28 @@
         <!-- 联系我们 -->
         <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-title">联系我们</h2>
+                <h2 class="section-title" data-translate="contactTitle">Contact Us</h2>
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-item">
                             <span class="contact-icon">📧</span>
-                            <span>contact@jopar.com</span>
+                            <span data-translate="contactEmail">contact@jopar.com</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📱</span>
-                            <span>+86 400-123-4567</span>
+                            <span data-translate="contactPhone">+86 400-123-4567</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📍</span>
-                            <span>北京市朝阳区创新大厦</span>
+                            <span data-translate="contactAddress">北京市朝阳区创新大厦</span>
                         </div>
                     </div>
                     <div class="contact-form">
                         <form>
-                            <input type="text" placeholder="您的姓名" required>
-                            <input type="email" placeholder="邮箱地址" required>
-                            <textarea placeholder="留言内容" rows="4" required></textarea>
-                            <button type="submit" class="btn btn-primary">发送消息</button>
+                            <input type="text" placeholder="Your Name" data-translate="contactFormName" required>
+                            <input type="email" placeholder="Email Address" data-translate="contactFormEmail" required>
+                            <textarea placeholder="Message Content" data-translate="contactFormMessage" rows="4" required></textarea>
+                            <button type="submit" class="btn btn-primary" data-translate="contactFormSubmit">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -221,17 +234,18 @@
                     <span class="logo-text">Jopar</span>
                 </div>
                 <div class="footer-links">
-                    <a href="#privacy">隐私政策</a>
-                    <a href="#terms">服务条款</a>
-                    <a href="#help">帮助中心</a>
+                    <a href="#privacy" data-translate="footerPrivacy">Privacy Policy</a>
+                    <a href="#terms" data-translate="footerTerms">Terms of Service</a>
+                    <a href="#help" data-translate="footerHelp">Help Center</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Jopar. 让每个家庭都能在游戏中找到快乐。</p>
+                <p data-translate="footerCopyright">&copy; 2024 Jopar. Let every family find joy in games.</p>
             </div>
         </div>
     </footer>
 
+    <script src="i18n-config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
