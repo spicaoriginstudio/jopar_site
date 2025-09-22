@@ -177,8 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // 页面元素动画
     initScrollAnimations();
     
-    // 表单处理
-    initContactForm();
+    // 表单处理（已移除）
+    // initContactForm();
     
     // 游戏卡片交互
     initGameCardInteractions();
@@ -270,47 +270,10 @@ function initScrollAnimations() {
     });
 }
 
-// 联系表单处理
-function initContactForm() {
-    const form = document.querySelector('.contact-form form');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // 获取表单数据
-            const formData = new FormData(form);
-            const name = form.querySelector('input[type="text"]').value;
-            const email = form.querySelector('input[type="email"]').value;
-            const message = form.querySelector('textarea').value;
-            
-            // 简单的表单验证
-            if (!name || !email || !message) {
-                showNotification(t('formValidationRequired'), 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showNotification(t('formValidationEmail'), 'error');
-                return;
-            }
-            
-            // 模拟发送
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = t('formSending');
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                showNotification(t('formSuccess'), 'success');
-                form.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
-}
+// 联系表单处理（已移除）
+// function initContactForm() {
+//     // 表单处理代码已移除
+// }
 
 // 游戏卡片交互
 function initGameCardInteractions() {

@@ -19,7 +19,6 @@ const I18N_CONFIG = {
         heroSubtitle: 'Family Interactive Game Platform',
         heroDescription: 'Let every family find joy in games and strengthen bonds through interaction. Explore, learn, and grow together with your children, creating beautiful memories.',
         heroButtonPrimary: 'Try Now',
-        heroButtonSecondary: 'Learn More',
         
         // 功能特色
         featuresTitle: 'Core Features',
@@ -61,13 +60,8 @@ const I18N_CONFIG = {
         
         // 联系我们
         contactTitle: 'Contact Us',
-        contactEmail: 'contact@jopar.com',
-        contactPhone: '+86 400-123-4567',
-        contactAddress: 'Innovation Building, Chaoyang District, Beijing',
-        contactFormName: 'Your Name',
-        contactFormEmail: 'Email Address',
-        contactFormMessage: 'Message Content',
-        contactFormSubmit: 'Send Message',
+        contactGame: 'Spica Origin Studio',
+        contactEmail: 'spicaoriginstudio@gmail.com',
         
         // 页脚
         footerPrivacy: 'Privacy Policy',
@@ -113,7 +107,6 @@ const I18N_CONFIG = {
         heroSubtitle: '亲子互动游戏平台',
         heroDescription: '让每个家庭都能在游戏中找到快乐，在互动中增进感情。<br>与孩子一起探索、学习、成长，创造美好的回忆。',
         heroButtonPrimary: '立即体验',
-        heroButtonSecondary: '了解更多',
         
         // 功能特色
         featuresTitle: '核心功能',
@@ -155,13 +148,8 @@ const I18N_CONFIG = {
         
         // 联系我们
         contactTitle: '联系我们',
-        contactEmail: 'contact@jopar.com',
-        contactPhone: '+86 400-123-4567',
-        contactAddress: '北京市朝阳区创新大厦',
-        contactFormName: '您的姓名',
-        contactFormEmail: '邮箱地址',
-        contactFormMessage: '留言内容',
-        contactFormSubmit: '发送消息',
+        contactGame: 'Spica Origin Studio',
+        contactEmail: 'spicaoriginstudio@gmail.com',
         
         // 页脚
         footerPrivacy: '隐私政策',
