@@ -43,6 +43,9 @@ class GameShareApp {
         
         // 加载游戏数据
         await this.loadGameData();
+        
+        // 初始化Record in Jopar按钮
+        this.initRecordButton();
     }
     
     // 翻译方法
@@ -353,6 +356,18 @@ class GameShareApp {
             ).join('');
         } else {
             errorElement.textContent = message;
+        }
+    }
+    
+    // 初始化Record in Jopar按钮
+    initRecordButton() {
+        const recordBtn = document.getElementById('recordInJoparBtn');
+        if (recordBtn) {
+            recordBtn.addEventListener('click', () => {
+                // 打开指定的OneLink链接到新标签页
+                const targetUrl = 'https://joparapp.onelink.me/9HsN/w1dy9we5';
+                window.open(targetUrl, '_blank');
+            });
         }
     }
 }

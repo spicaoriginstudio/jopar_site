@@ -49,6 +49,9 @@ const I18N_CONFIG = {
         // 默认游戏图标
         defaultGameIcon: '🎮',
         
+        // Record in Jopar 按钮
+        recordInJopar: 'Record in Jopar',
+        
         // 错误信息
         missingGameId: 'Missing game ID parameter',
         databaseError: 'Database query failed',
@@ -110,6 +113,9 @@ const I18N_CONFIG = {
         // 默认游戏图标
         defaultGameIcon: '🎮',
         
+        // Record in Jopar 按钮
+        recordInJopar: '在Jopar中记录',
+        
         // 错误信息
         missingGameId: '缺少游戏ID参数',
         databaseError: '数据库查询失败',
@@ -170,6 +176,9 @@ const I18N_CONFIG = {
         
         // 默认游戏图标
         defaultGameIcon: '🎮',
+        
+        // Record in Jopar 按钮
+        recordInJopar: 'Joparで記録',
         
         // 错误信息
         missingGameId: 'ゲームIDパラメータが不足しています',
