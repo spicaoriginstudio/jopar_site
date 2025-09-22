@@ -17,7 +17,7 @@ const I18N_CONFIG = {
         // 英雄区域
         heroTitle: 'Jopar',
         heroSubtitle: 'Family Interactive Game Platform',
-        heroDescription: 'Let every family find joy in games and strengthen bonds through interaction.<br>Explore, learn, and grow together with your children, creating beautiful memories.',
+        heroDescription: 'Let every family find joy in games and strengthen bonds through interaction. Explore, learn, and grow together with your children, creating beautiful memories.',
         heroButtonPrimary: 'Try Now',
         heroButtonSecondary: 'Learn More',
         
