@@ -4,59 +4,59 @@
 const I18N_CONFIG = {
     en: {
         // 页面标题和元信息
-        pageTitle: 'Jopar - Family Interactive Game Platform',
-        pageDescription: 'Let every family find joy in games and strengthen bonds through interaction.',
+        pageTitle: 'Jopar - Parent-Child Bonding Tracker',
+        pageDescription: 'Track and enhance parent-child bonding through meaningful activities and quality time together.',
         
         // 导航栏
         navHome: 'Home',
         navFeatures: 'Features',
-        navGames: 'Games',
+        navGames: 'Activities',
         navAbout: 'About',
         navContact: 'Contact',
         
         // 英雄区域
         heroTitle: 'Jopar',
-        heroSubtitle: 'Family Interactive Game Platform',
-        heroDescription: 'Let every family find joy in games and strengthen bonds through interaction. Explore, learn, and grow together with your children, creating beautiful memories.',
-        heroButtonPrimary: 'Try Now',
+        heroSubtitle: 'Parent-Child Bonding Tracker',
+        heroDescription: 'Record and track your parent-child bonding activities. Discover meaningful ways to spend quality time together and strengthen family bonds through various activities.',
+        heroButtonPrimary: 'Start Tracking',
         tryNowSuccess: 'Opening app...',
         
         // 功能特色
         featuresTitle: 'Core Features',
-        featureGameCenter: 'Family Game Center',
-        featureGameCenterDesc: 'Provides various games suitable for family members to participate together, including sports, puzzle, creative games, etc., promoting parent-child relationships.',
-        featureGrowthRecord: 'Growth Records',
-        featureGrowthRecordDesc: 'Record children\'s gaming journey and growth trajectory, generate detailed parenting reports to help parents understand their children\'s development.',
-        featureTimeManagement: 'Time Management',
-        featureTimeManagementDesc: 'Intelligently arrange game time, set reminder functions, help families establish regular gaming habits.',
-        featureAchievement: 'Achievement System',
-        featureAchievementDesc: 'Motivate children to participate through game achievements, cultivate persistence and goal awareness, making growth more interesting.',
-        featureFamilyManagement: 'Family Management',
-        featureFamilyManagementDesc: 'Easily manage family members, share game records, let every family member participate.',
-        featureFeedback: 'Interactive Feedback',
-        featureFeedbackDesc: 'Record game feedback, share gaming insights, exchange parenting experiences with other families.',
+        featureGameCenter: 'Activity Tracking',
+        featureGameCenterDesc: 'Record daily parent-child bonding activities and track participation frequency. No photos or videos stored - just simple activity logging.',
+        featureGrowthRecord: 'Bonding Statistics',
+        featureGrowthRecordDesc: 'View comprehensive statistics and trends of your parent-child bonding activities over time. Track progress and celebrate milestones.',
+        featureTimeManagement: 'Activity Categories',
+        featureTimeManagementDesc: 'Organize activities by type: Learning, Sports, Educational. Understand your bonding patterns and preferences.',
+        featureAchievement: 'Progress Tracking',
+        featureAchievementDesc: 'Monitor bonding consistency and celebrate achievements. Build meaningful habits through regular parent-child activities.',
+        featureFamilyManagement: 'Family Insights',
+        featureFamilyManagementDesc: 'Track bonding activities across family members. Understand which activities work best for your family dynamics.',
+        featureFeedback: 'Activity Analysis',
+        featureFeedbackDesc: 'Analyze bonding patterns and activity preferences. Discover insights about your family\'s bonding journey.',
         
         // 游戏展示
-        gamesTitle: 'Featured Games',
-        gameCategorySports: 'Sports Games',
-        gameCategoryPuzzle: 'Puzzle Games',
-        gameCategoryInteractive: 'Interactive Games',
+        gamesTitle: 'Bonding Activities',
+        gameCategorySports: 'Physical Activities',
+        gameCategoryPuzzle: 'Learning Activities',
+        gameCategoryInteractive: 'Creative Activities',
         gameFamilyRelay: 'Family Relay Race',
         gameBalanceChallenge: 'Balance Challenge',
         gameThrowingGame: 'Throwing Game',
         gamePuzzleChallenge: 'Puzzle Challenge',
-        gameMathGame: 'Math Game',
+        gameMathGame: 'Math Learning',
         gameCreativeDrawing: 'Creative Drawing',
         gameRolePlay: 'Role Play',
-        gamePerformanceGame: 'Performance Game',
-        gameMusicInteraction: 'Music Interaction',
+        gamePerformanceGame: 'Storytelling',
+        gameMusicInteraction: 'Music Together',
         
         // 关于我们
         aboutTitle: 'About Jopar',
-        aboutDescription1: 'Jopar is a family interactive game platform designed specifically for modern families. We believe that games are not only entertainment, but also a bridge for family communication and a companion for children\'s growth.',
-        aboutDescription2: 'Through carefully designed game content and intelligent recording systems, we help parents better understand their children, promote parent-child relationships, and let every family find their own happy time in games.',
+        aboutDescription1: 'Jopar is a parent-child bonding tracker designed to help families strengthen their relationships through meaningful activities. We believe that quality time together is the foundation of strong family bonds.',
+        aboutDescription2: 'Our simple tracking system helps you record daily bonding activities without storing personal data like photos or videos. Focus on what matters most - spending quality time with your children.',
         statActiveFamilies: 'Active Families',
-        statFeaturedGames: 'Featured Games',
+        statFeaturedGames: 'Activity Types',
         statUserSatisfaction: 'User Satisfaction',
         
         // 联系我们
@@ -67,17 +67,17 @@ const I18N_CONFIG = {
         // 页脚
         footerPrivacy: 'Privacy Policy',
         footerTerms: 'Terms of Service',
-        footerCopyright: '© 2024 Jopar. Let every family find joy in games.',
+        footerCopyright: '© 2025 Jopar. Strengthening family bonds through meaningful activities.',
         
         // 游戏详情模态框
-        gameModalDescription: 'This is an interesting family interactive game, suitable for the whole family to participate together.',
+        gameModalDescription: 'This is a meaningful parent-child bonding activity that helps strengthen family relationships.',
         gameModalAge: 'Suitable Age:',
         gameModalParticipants: 'Participants:',
-        gameModalDuration: 'Game Duration:',
+        gameModalDuration: 'Activity Duration:',
         gameModalAgeValue: '3-12 years old',
         gameModalParticipantsValue: '2-6 people',
         gameModalDurationValue: '15-30 minutes',
-        gameModalStart: 'Start Game',
+        gameModalStart: 'Start Activity',
         
         // 表单验证和通知
         formValidationRequired: 'Please fill in all required fields',
@@ -92,59 +92,59 @@ const I18N_CONFIG = {
     },
     zh: {
         // 页面标题和元信息
-        pageTitle: 'Jopar - 亲子互动游戏平台',
-        pageDescription: '让每个家庭都能在游戏中找到快乐，在互动中增进感情。',
+        pageTitle: 'Jopar - 亲子陪伴记录工具',
+        pageDescription: '记录和追踪亲子陪伴活动，通过有意义的互动增进亲子关系。',
         
         // 导航栏
         navHome: '首页',
         navFeatures: '功能',
-        navGames: '游戏',
+        navGames: '活动',
         navAbout: '关于',
         navContact: '联系',
         
         // 英雄区域
         heroTitle: 'Jopar',
-        heroSubtitle: '亲子互动游戏平台',
-        heroDescription: '让每个家庭都能在游戏中找到快乐，在互动中增进感情。<br>与孩子一起探索、学习、成长，创造美好的回忆。',
-        heroButtonPrimary: '立即体验',
+        heroSubtitle: '亲子陪伴记录工具',
+        heroDescription: '记录和追踪您的亲子陪伴活动。发现更多有意义的亲子时光，通过各种活动增进家庭关系。',
+        heroButtonPrimary: '开始记录',
         tryNowSuccess: '正在打开应用...',
         
         // 功能特色
         featuresTitle: '核心功能',
-        featureGameCenter: '家庭游戏中心',
-        featureGameCenterDesc: '提供多种适合家庭成员共同参与的游戏，包括运动类、益智类、创意类等，促进亲子关系。',
-        featureGrowthRecord: '成长记录',
-        featureGrowthRecordDesc: '记录孩子们的游戏历程和成长轨迹，生成详细的育儿报告，帮助家长了解孩子的发展。',
-        featureTimeManagement: '时间管理',
-        featureTimeManagementDesc: '智能安排游戏时间，设置提醒功能，帮助家庭建立规律的游戏习惯。',
-        featureAchievement: '成就系统',
-        featureAchievementDesc: '通过游戏成就激励孩子参与，培养持续性和目标感，让成长更有趣。',
-        featureFamilyManagement: '家庭管理',
-        featureFamilyManagementDesc: '轻松管理家庭成员，共享游戏记录，让每个家庭成员都能参与其中。',
-        featureFeedback: '互动反馈',
-        featureFeedbackDesc: '记录游戏反馈，分享游戏心得，与其他家庭交流育儿经验。',
+        featureGameCenter: '活动记录',
+        featureGameCenterDesc: '记录每日亲子陪伴活动，追踪参与频次。不存储照片或视频，只进行简单的活动记录。',
+        featureGrowthRecord: '陪伴统计',
+        featureGrowthRecordDesc: '查看亲子陪伴活动的全面统计和趋势分析。追踪进度，庆祝里程碑时刻。',
+        featureTimeManagement: '活动分类',
+        featureTimeManagementDesc: '按类型组织活动：学习类、运动类、教育类。了解您的陪伴模式和偏好。',
+        featureAchievement: '进度追踪',
+        featureAchievementDesc: '监控陪伴一致性，庆祝成就。通过定期亲子活动建立有意义的习惯。',
+        featureFamilyManagement: '家庭洞察',
+        featureFamilyManagementDesc: '追踪家庭成员间的陪伴活动。了解哪些活动最适合您的家庭动态。',
+        featureFeedback: '活动分析',
+        featureFeedbackDesc: '分析陪伴模式和活动偏好。发现关于您家庭陪伴之旅的洞察。',
         
         // 游戏展示
-        gamesTitle: '精选游戏',
-        gameCategorySports: '运动类游戏',
-        gameCategoryPuzzle: '益智类游戏',
-        gameCategoryInteractive: '互动类游戏',
+        gamesTitle: '陪伴活动',
+        gameCategorySports: '运动类活动',
+        gameCategoryPuzzle: '学习类活动',
+        gameCategoryInteractive: '创意类活动',
         gameFamilyRelay: '家庭接力赛',
         gameBalanceChallenge: '平衡挑战',
         gameThrowingGame: '投掷游戏',
         gamePuzzleChallenge: '拼图挑战',
-        gameMathGame: '数学游戏',
+        gameMathGame: '数学学习',
         gameCreativeDrawing: '创意绘画',
         gameRolePlay: '角色扮演',
-        gamePerformanceGame: '表演游戏',
+        gamePerformanceGame: '故事讲述',
         gameMusicInteraction: '音乐互动',
         
         // 关于我们
         aboutTitle: '关于 Jopar',
-        aboutDescription1: 'Jopar 是一款专为现代家庭设计的亲子互动游戏平台。我们相信，游戏不仅是娱乐，更是家庭沟通的桥梁，是孩子成长的伙伴。',
-        aboutDescription2: '通过精心设计的游戏内容和智能化的记录系统，我们帮助家长更好地了解孩子，促进亲子关系，让每个家庭都能在游戏中找到属于自己的快乐时光。',
+        aboutDescription1: 'Jopar 是一款亲子陪伴记录工具，旨在帮助家庭通过有意义的互动活动增进亲子关系。我们相信，高质量的陪伴时光是建立牢固家庭关系的基础。',
+        aboutDescription2: '我们简单的记录系统帮助您记录每日陪伴活动，不存储照片或视频等个人数据。专注于最重要的事情——与孩子共度有意义的时光。',
         statActiveFamilies: '活跃家庭',
-        statFeaturedGames: '精选游戏',
+        statFeaturedGames: '活动类型',
         statUserSatisfaction: '用户满意度',
         
         // 联系我们
@@ -155,17 +155,17 @@ const I18N_CONFIG = {
         // 页脚
         footerPrivacy: '隐私政策',
         footerTerms: '服务条款',
-        footerCopyright: '© 2024 Jopar. 让每个家庭都能在游戏中找到快乐。',
+        footerCopyright: '© 2025 Jopar. 通过有意义的互动增进家庭关系。',
         
         // 游戏详情模态框
-        gameModalDescription: '这是一个有趣的亲子互动游戏，适合全家人一起参与。',
+        gameModalDescription: '这是一个有意义的亲子陪伴活动，有助于增进家庭关系。',
         gameModalAge: '适合年龄：',
         gameModalParticipants: '参与人数：',
-        gameModalDuration: '游戏时长：',
+        gameModalDuration: '活动时长：',
         gameModalAgeValue: '3-12岁',
         gameModalParticipantsValue: '2-6人',
         gameModalDurationValue: '15-30分钟',
-        gameModalStart: '开始游戏',
+        gameModalStart: '开始活动',
         
         // 表单验证和通知
         formValidationRequired: '请填写所有必填字段',
